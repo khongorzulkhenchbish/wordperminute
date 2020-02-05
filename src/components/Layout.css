@@ -106,7 +106,7 @@ body {
   }
   
   #in {
-    width: 0.1px;
+    /* width: 5px; */
     border: 0px;
     outline: none;
     padding-left: 0px;
