@@ -1,6 +1,7 @@
 import React, {} from 'react';
 import { Col, Row } from 'react-bootstrap';
 
+
 // check equality between input and givenWord while writing
 function handleCheck (_s1, _s2) {
     for(var i = 0; i < _s2.length; ++i) {
@@ -31,11 +32,26 @@ class Main extends React.Component {
             red:'<span style="color: red;text-decoration: line-through;">'
         }
         this.lDiv='';
-        this.index=0
+        this.index=0;
+        this.isStarted = false;
+        this.sc = 1;
     }
 
-
+    CountDown() {
+    	this.isStarted = true;   
+    		console.log(this.sc);
+    	if (this.sc === 0) {
+		} 
+		else {
+        	this.sc--;
+        	setTimeout(() => {
+            this.CountDown()
+        	}, 1000);
+    	}   
+    }
+      
     handleChange = (e) => {
+        if (!this.isStarted) this.CountDown();
         // this.state.charMin++;
         var tmp=e.target.value, now='';
 
@@ -103,7 +119,7 @@ class Main extends React.Component {
             <Col className="text-right" id="leftWord">
             </Col>
             <Col >
-                <input type="text" id="in"  onChange={(e) => {this.handleChange(e)}} autoFocus></input>
+                <input type="text" id="in"  onChange={(e) => {this.handleChange(e)}} autoFocus ></input>
             </Col>
             <Col className="text-left" id="rightWord">{this.givenText}
             </Col>

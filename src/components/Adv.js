@@ -5,7 +5,7 @@ const Adv = () => {
     return (
         <Row className="justify-content-center d-flex adv">
           <div className="contentBox text-right">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/GIsc6Q9VkcA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/GIsc6Q9VkcA" frameborder="0" title="advVideo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" ></iframe>
           </div>
           <div className="contentBox">
             <h1>ADVERTISEMENT GOES HERE</h1>

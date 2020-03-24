@@ -2,25 +2,10 @@ import React from 'react';
 import {Row, Col, Container} from 'react-bootstrap';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        sec: 60,
-    }
-  }
+    // constructor() {
+    //     super();
+    // }
 
-  // Timer() {
-  //   console.log('working'+this.state.sec);
-  //   if(this.state.sec === 0) this.state.sec=60;
-  //   else { 
-  //     --this.state.sec;
-  //     setTimeout(Timer, 1000);
-  //   }
-  // }
-
-  // componentDidMount() {
-  //   this.Timer();
-  // }
     render () {
       return (
         <Row style={{backgroundColor:'#527dbc'}}> 
@@ -62,8 +47,8 @@ class Header extends React.Component {
             </Row>
             <Row className="justify-content-center d-flex">
               <Col className="meter">
-                <Col className="counter" id="second">
-                  {this.state.sec}
+                <Col className="counter" id="second" func={this.CountDown}>
+                  
                 </Col>
                 <Col className="desc">
                   SECOND
