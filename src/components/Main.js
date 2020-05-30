@@ -1,5 +1,8 @@
 import React, {} from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Container } from 'react-bootstrap';
+import Header from './Header';
+import Adv from '../components/Adv';
+import './Layout.css';
 
 
 // check equality between input and givenWord while writing
@@ -11,15 +14,13 @@ function handleCheck (_s1, _s2) {
 }
 
 
-class Main extends React.Component {
-    constructor(props) {
-        super(props);
+export default class Main extends React.Component {
+    constructor() {
+        super();
         this.state = {
             givenWord: '',
-            correct: 0,
-            wrong: 0,
-            wordCnt: 0,
             charMin: 0,
+            sec: 60,
         }
         this.givenText = "apple is the best fruit in the world";
         this.givenArray=[];
@@ -34,16 +35,21 @@ class Main extends React.Component {
         this.lDiv='';
         this.index=0;
         this.isStarted = false;
-        this.sc = 1;
+        this.correct = 0
+        this.wrong = 0
+        this.totalWord = 0
+        this.accuracy = 0
+        this.totalLetter = 0
     }
 
     CountDown() {
     	this.isStarted = true;   
-    		console.log(this.sc);
-    	if (this.sc === 0) {
+    	console.log(this.state.sec + " seconds left");
+    	if (this.state.sec === 0) {
+            console.log("over")
 		} 
 		else {
-        	this.sc--;
+            this.setState({sec: this.state.sec-1});
         	setTimeout(() => {
             this.CountDown()
         	}, 1000);
@@ -58,25 +64,15 @@ class Main extends React.Component {
         if(tmp.charAt(tmp.length-1) === " ") {
             //if wrote a word
             tmp = tmp.substr(0, tmp.length - 1);
-            // if (tmp.length > 1) this.state.wordCnt++;
+            if (tmp.length >= 1) this.totalWord++;
                 if(tmp === this.state.givenWord) {
-                    // if input is exactly right
-                    this.setState((state) => {
-                        return {
-                            correct: state.correct+1
-                        }
-                    });
+                    this.correct += 1
+                    this.totalLetter += tmp.length;
                     now = this.style.green;
                 } else {
-                    // if input is exactly wrong
-                    this.setState((state) => {              
-                        return {
-                            wrong: state.wrong+1  
-                        }    
-                    });
+                    this.wrong += 1
                     now = this.style.red;
                 }
-
                 //index of substr to erase from rDiv
                 this.index += this.state.givenWord.length+1;
 
@@ -94,8 +90,11 @@ class Main extends React.Component {
                 document.getElementById('leftWord').innerHTML = this.lDiv;
 			    document.getElementById('rightWord').innerHTML = this.givenText.substr(this.index, this.givenText.length);
                 document.getElementById("in").value='';
+                if (this.totalWord) {
+                    this.accuracy = Math.floor(this.correct/this.totalWord*100);
+                }
+                console.log("cor = " + this.correct + ", totalWord = " + this.totalWord + ", acc = " + this.accuracy) 
         } else {
-            // this.state.wordCnt++;
             //while writing
             if(handleCheck(this.state.givenWord, tmp)) 
                 now = this.style.green;
@@ -115,17 +114,19 @@ class Main extends React.Component {
     render() {
         console.log('render');
         return (
-        <Row>
-            <Col className="text-right" id="leftWord">
-            </Col>
-            <Col >
-                <input type="text" id="in"  onChange={(e) => {this.handleChange(e)}} autoFocus ></input>
-            </Col>
-            <Col className="text-left" id="rightWord">{this.givenText}
-            </Col>
-        </Row>
+            <Container fluid>
+                <Header data={{sec:this.state.sec, accuracy: this.accuracy, correct: this.correct, totalLetter: this.totalLetter}}/>
+                <Row>
+                    <Col className="text-right" id="leftWord">
+                    </Col>
+                    <Col >
+                        <input type="text" id="in"  onChange={(e) => {this.handleChange(e)}} autoFocus ></input>
+                    </Col>
+                    <Col className="text-left" id="rightWord">{this.givenText}
+                    </Col>
+                </Row>
+                <Adv/>
+            </Container>
         );
     }
 }
-
-export default Main;
