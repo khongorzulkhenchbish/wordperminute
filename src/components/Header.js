@@ -1,11 +1,11 @@
 import React from 'react';
-import {Row, Col, Container} from 'react-bootstrap';
+import {Row, Col, Container, Image} from 'react-bootstrap';
 
 const Header = (props) => {
 	return (
         <Row style={{backgroundColor:'#527dbc'}}> 
 			<Col style={{backgroundColor:'#8eba13'}}>
-				<img src="#" alt="logo"></img>
+				<Image src="../../logo.png" fluid />
 			</Col>
 			<div className="w-100">
 			</div>
