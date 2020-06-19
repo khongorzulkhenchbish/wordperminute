@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "build",
+    "target": "write-on-me",
     "ignore": [
       "firebase.json",
       "**/.*",

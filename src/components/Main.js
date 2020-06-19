@@ -22,15 +22,15 @@ export default class Main extends React.Component {
             charMin: 0,
             sec: 60,
         }
-        this.givenText = "apple is the best fruit in the world";
+        this.givenText = "search the worlds information, including webpages, images, videos and more. Google has many special features to help you find exactly what youre looking";
         this.givenArray=[];
         this.givenArray=this.givenText.trim().split(" ");
         this.state.givenWord=this.givenArray[0];
         this.i=0;
         this.style = {
             end:'</span>',
-            green:'<span style="color: green;text-decoration: none;">',
-            red:'<span style="color: red;text-decoration: line-through;">'
+            green:'<span style="color: #6174b4;text-decoration: none;">',
+            red:'<span style="color: #6174b4;text-decoration: line-through;">'
         }
         this.lDiv='';
         this.index=0;
@@ -40,6 +40,10 @@ export default class Main extends React.Component {
         this.totalWord = 0
         this.accuracy = 0
         this.totalLetter = 0
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        this._input.focus();
     }
 
     CountDown() {
@@ -58,7 +62,6 @@ export default class Main extends React.Component {
       
     handleChange = (e) => {
         if (!this.isStarted) this.CountDown();
-        // this.state.charMin++;
         var tmp=e.target.value, now='';
 
         if(tmp.charAt(tmp.length-1) === " ") {
@@ -93,7 +96,6 @@ export default class Main extends React.Component {
                 if (this.totalWord) {
                     this.accuracy = Math.floor(this.correct/this.totalWord*100);
                 }
-                console.log("cor = " + this.correct + ", totalWord = " + this.totalWord + ", acc = " + this.accuracy) 
         } else {
             //while writing
             if(handleCheck(this.state.givenWord, tmp)) 
@@ -116,13 +118,12 @@ export default class Main extends React.Component {
         return (
             <Container fluid>
                 <Header data={{sec:this.state.sec, accuracy: this.accuracy, correct: this.correct, totalLetter: this.totalLetter}}/>
-                <Row>
-                    <Col className="text-right" id="leftWord">
+                <Row id="mid-row">
+                    <Col className="text-right" id="leftWord">|
                     </Col>
-                    <Col >
-                        <input type="text" id="in"  onChange={(e) => {this.handleChange(e)}} autoFocus ></input>
-                    </Col>
-                    <Col className="text-left" id="rightWord">{this.givenText}
+                    <Col className={this.state.focused ? "focused": ""} id="right-col">
+                        <input type="text" id="in" onChange={(e) => {this.handleChange(e)}} autoFocus ref={c => (this._input = c)}></input>
+                        <div id="rightWord" >{this.givenText}</div>
                     </Col>
                 </Row>
                 <Adv/>
