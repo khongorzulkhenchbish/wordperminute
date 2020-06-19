@@ -1,13 +1,15 @@
 body {
-    font-family: 'Roboto';
+    font-family: 'Roboto' !important;
     font-size: 16px;
     text-align: center;
+    background: #e5e8f4;
     }
   
   div
   {
-    display: inline-block;
-    font-size: 30px;
+    font-weight: 100;
+    font-size: 40px;
+    font-family: Roboto;
   }
   
   .counter {
@@ -58,7 +60,7 @@ body {
   }
   
   .cont {
-    padding: 4em 1em 4em 1em;
+    padding: 2.5em 0em 2.5em 0em;
   }
   
   .adv {
@@ -105,26 +107,35 @@ body {
   
   }
   
-  #in {
-    /* width: 5px; */
+input {
     border: 0px;
+    width: 1px;
     outline: none;
     padding-left: 0px;
     padding-right: 0px;
+    position: absolute;
   }
   
-  
+
   #leftWord {
-    padding-right: 0px;
-    overflow: hidden;
     direction: rtl;
+    white-space: nowrap;
+    width: 50%;
+    
   }
   
   #rightWord {
-    padding-left: 0px;
     overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    max-width: 98%;
+  }
+
+  #right-col {
+    width: 50%;
   }
   
+
   .popup-window {
       text-align: left;
       position: relative;
@@ -192,3 +203,45 @@ body {
     display:none;
   }
   
+  .col {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 50%;
+  }
+
+  footer {
+    padding-top: 50px;
+    font-size: 0.5em;
+    text-align: center;
+    background-color: #f1f3fb;
+  }
+
+  .nav-link {
+    font-weight: 400;
+    padding: 1rem 1rem !important;
+    color: rgb(232, 241, 241);
+  }
+
+  .nav-item {
+    font-size: 20px;
+    margin: 0 10px;
+    font-weight: 300;
+  }
+
+.nav {
+    height: 60px;
+    box-sizing: border-box;
+    background-color: rgba(63,50,50,.2);
+    z-index: 9999;
+}
+
+.nav-link:hover {
+  color: #fff;
+  transition-property: 2s;
+}
+
+#mid-row {
+  background-color: #fff !important;
+  padding-top: 40px;
+  margin-bottom: 40px;
+}

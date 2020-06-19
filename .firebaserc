@@ -2,5 +2,14 @@
   "projects": {
     "default": "writeonme",
     "write-on-me": "writeonme"
+  },
+  "targets": {
+    "writeonme": {
+      "hosting": {
+        "write-on-me": [
+          "write-on-me"
+        ]
+      }
+    }
   }
 }
