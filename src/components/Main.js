@@ -1,17 +1,10 @@
-import React, {} from 'react';
+import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 import Header from './Header';
+import Footer from './Footer';
 import Adv from '../components/Adv';
-import './Layout.css';
-
-
-// check equality between input and givenWord while writing
-function handleCheck (_s1, _s2) {
-    for(var i = 0; i < _s2.length; ++i) {
-        if(_s1[i] !==_s2[i]) return false;
-    }
-    return true;
-}
+import '../styles/Layout.css';
+import { isSameString, getLastInputChar } from './isSameString';
 
 
 export default class Main extends React.Component {
@@ -47,8 +40,7 @@ export default class Main extends React.Component {
     }
 
     CountDown() {
-    	this.isStarted = true;   
-    	console.log(this.state.sec + " seconds left");
+    	this.isStarted = true;
     	if (this.state.sec === 0) {
             console.log("over")
 		} 
@@ -64,10 +56,10 @@ export default class Main extends React.Component {
         if (!this.isStarted) this.CountDown();
         var tmp=e.target.value, now='';
 
-        if(tmp.charAt(tmp.length-1) === " ") {
-            //if wrote a word
+        if(getLastInputChar(tmp) === " ") {
             tmp = tmp.substr(0, tmp.length - 1);
-            if (tmp.length >= 1) this.totalWord++;
+            if(tmp.length >= 1) 
+                this.totalWord++;
                 if(tmp === this.state.givenWord) {
                     this.correct += 1
                     this.totalLetter += tmp.length;
@@ -98,7 +90,7 @@ export default class Main extends React.Component {
                 }
         } else {
             //while writing
-            if(handleCheck(this.state.givenWord, tmp)) 
+            if(isSameString(this.state.givenWord, tmp)) 
                 now = this.style.green;
             else 
                 now = this.style.red;
@@ -114,12 +106,11 @@ export default class Main extends React.Component {
 
 
     render() {
-        console.log('render');
         return (
             <Container fluid>
                 <Header data={{sec:this.state.sec, accuracy: this.accuracy, correct: this.correct, totalLetter: this.totalLetter}}/>
-                <Row id="mid-row">
-                    <Col className="text-right" id="leftWord">|
+                <Row className="text-cont">
+                    <Col className="text-right" id="leftWord">
                     </Col>
                     <Col className={this.state.focused ? "focused": ""} id="right-col">
                         <input type="text" id="in" onChange={(e) => {this.handleChange(e)}} autoFocus ref={c => (this._input = c)}></input>
@@ -127,6 +118,7 @@ export default class Main extends React.Component {
                     </Col>
                 </Row>
                 <Adv/>
+                <Footer/>
             </Container>
         );
     }
