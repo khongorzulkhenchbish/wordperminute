@@ -3,10 +3,10 @@ WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (fil
 WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
 WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
 WARNING: All illegal access operations will be denied in a future release
-13:06:17.313 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-13:06:17.510 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
-13:08:33.501 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
-13:08:33.542 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: writeonme
-13:08:33.563 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for writeonme
-13:08:33.565 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for writeonme
-13:08:33.575 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+13:17:42.833 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+13:17:43.044 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+13:29:39.101 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+13:29:39.135 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: writeonme
+13:29:39.158 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for writeonme
+13:29:39.160 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for writeonme
+13:29:39.168 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.

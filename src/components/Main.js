@@ -110,8 +110,7 @@ export default class Main extends React.Component {
             <Container fluid>
                 <Header data={{sec:this.state.sec, accuracy: this.accuracy, correct: this.correct, totalLetter: this.totalLetter}}/>
                 <Row className="text-cont">
-                    <Col className="text-right" id="leftWord">
-                    </Col>
+                    <Col className="text-right" id="leftWord"></Col>
                     <Col className={this.state.focused ? "focused": ""} id="right-col">
                         <input type="text" id="in" onChange={(e) => {this.handleChange(e)}} autoFocus ref={c => (this._input = c)}></input>
                         <div id="rightWord" >{this.givenText}</div>

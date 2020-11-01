@@ -3,6 +3,9 @@ body {
     background: #e5e8f4;
 }
 
+.container-fluid {
+    background-color: #fff;
+}
 .header-container {
     background-color: #527dbc;
     flex-direction: column;
@@ -86,6 +89,7 @@ input {
     border: 0px;
     width: 1px;
     outline: none;
+    left: 0;
     padding-left: 0px;
     padding-right: 0px;
     position: absolute;
@@ -95,6 +99,7 @@ input {
     direction: rtl;
     white-space: nowrap;
     width: 50%;
+    padding-right: 0  !important;
 }
 
 #rightWord {
@@ -106,6 +111,10 @@ input {
 
 #leftWord, #right-col {
     height: 80%;
+}
+
+#right-col {
+    padding-left: 0 !important;
 }
 
 footer {
