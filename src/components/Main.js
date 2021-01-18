@@ -1,10 +1,12 @@
 import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 import Header from './Header';
-import Footer from './Footer';
 import Adv from '../components/Adv';
+import Footer from '../components/Footer';
+import PopUp from '../components/PopUp';
 import '../styles/Layout.css';
 import { isSameString, getLastInputChar } from './isSameString';
+import sample from "../resources/sample.json";
 
 
 export default class Main extends React.Component {
@@ -15,7 +17,8 @@ export default class Main extends React.Component {
             charMin: 0,
             sec: 60,
         }
-        this.givenText = "search the worlds information, including webpages, images, videos and more. Google has many special features to help you find exactly what youre looking";
+        this.givenText=sample;
+        // this.givenText ="search the worlds information including webpages images videos and more google has many special features to help";
         this.givenArray=[];
         this.givenArray=this.givenText.trim().split(" ");
         this.state.givenWord=this.givenArray[0];
@@ -29,7 +32,6 @@ export default class Main extends React.Component {
         this.index=0;
         this.isStarted = false;
         this.correct = 0
-        this.wrong = 0
         this.totalWord = 0
         this.accuracy = 0
         this.totalLetter = 0
@@ -39,34 +41,57 @@ export default class Main extends React.Component {
         this._input.focus();
     }
 
+
     CountDown() {
     	this.isStarted = true;
     	if (this.state.sec === 0) {
-            console.log("over")
-		} 
+            // this.InitializeStates();
+		}
 		else {
             this.setState({sec: this.state.sec-1});
         	setTimeout(() => {
             this.CountDown()
         	}, 1000);
-    	}   
+    	}
     }
-      
+
+    refreshPage () {
+        window.location.reload();
+    }
+
+    async InitializeStates() {
+        this.state.isStarted = false;
+        this.setState((_state) => {
+            return {
+                givenWord: '',
+                charMin: 0,
+                sec: 20,
+            }
+        });
+        this.correct=0;
+        this.accuracy=0;
+        this.totalLetter=0;
+        // this.refreshPage();
+    }
+
+
     handleChange = (e) => {
+
         if (!this.isStarted) this.CountDown();
-        var tmp=e.target.value, now='';
+
+        var tmp=e.target.value, display='';
 
         if(getLastInputChar(tmp) === " ") {
             tmp = tmp.substr(0, tmp.length - 1);
-            if(tmp.length >= 1) 
+            if(tmp.length >= 1)
                 this.totalWord++;
                 if(tmp === this.state.givenWord) {
                     this.correct += 1
                     this.totalLetter += tmp.length;
-                    now = this.style.green;
+                    display = this.style.green;
                 } else {
                     this.wrong += 1
-                    now = this.style.red;
+                    display = this.style.red;
                 }
                 //index of substr to erase from rDiv
                 this.index += this.state.givenWord.length+1;
@@ -75,31 +100,36 @@ export default class Main extends React.Component {
                 if(this.i === this.givenArray.length-1) {
                     this.i=-1; this.index=0;
                 }
-                
+
                 this.setState((state) => {
                     return {
                         givenWord: this.givenArray[++this.i]
                     }
                 });
-                this.lDiv += '\xa0' + now  + tmp + this.style.end;
+                this.lDiv += '\xa0' + display  + tmp + this.style.end;
+
                 document.getElementById('leftWord').innerHTML = this.lDiv;
 			    document.getElementById('rightWord').innerHTML = this.givenText.substr(this.index, this.givenText.length);
                 document.getElementById("in").value='';
+
                 if (this.totalWord) {
                     this.accuracy = Math.floor(this.correct/this.totalWord*100);
                 }
         } else {
             //while writing
-            if(isSameString(this.state.givenWord, tmp)) 
-                now = this.style.green;
-            else 
-                now = this.style.red;
-            
-            now += tmp + this.style.end;
+            if(isSameString(this.state.givenWord, tmp))
+                display = this.style.green;
+            else
+                display = this.style.red;
+
+            display += tmp + this.style.end;
+
+
             var k=0;
-            while(k < tmp.length && k < this.state.givenWord.length && this.state.givenWord[k] === tmp[k]) 
+
+            while(k < tmp.length && k < this.state.givenWord.length && this.state.givenWord[k] === tmp[k])
                 k++;
-                document.getElementById('leftWord').innerHTML = this.lDiv + '\xa0' + now;
+                document.getElementById('leftWord').innerHTML = this.lDiv + '\xa0' + display;
                 document.getElementById('rightWord').innerHTML = this.givenText.substr(this.index + k, this.givenText.length);
         }
     }
@@ -116,8 +146,9 @@ export default class Main extends React.Component {
                         <div id="rightWord" >{this.givenText}</div>
                     </Col>
                 </Row>
-                <Adv/>
-                <Footer/>
+                <PopUp data={{correct: this.correct, accuracy: this.accuracy, visible: this.state.sec===0}}/>
+                <Adv />
+                <Footer />
             </Container>
         );
     }

@@ -1,16 +1,21 @@
 import React from "react";
 import { Row, Col, Container, Nav } from "react-bootstrap";
 import "../styles/Layout.css";
+import { FaFacebook } from 'react-icons/fa';
 import data from "../resources/data.json";
+
 
 const Header = (props) => {
   return (
     <Row className="header-container">
         <Nav className="justify-content-end">
-            <Nav.Link href="/">{data.score_board}</Nav.Link>
-            <Nav.Link href="https://www.fb.com">fb-icon</Nav.Link>
+            <Nav.Link href="mailto: hongorzulnemo@gmail.com">{data.contact}</Nav.Link>
+            {/* <Nav.Link href="/">{data.score_board}</Nav.Link> */}
+            <Nav.Link href="https://www.facebook.com/khongorzul.khenchbish">
+                <FaFacebook />
+            </Nav.Link>
         </Nav>
-      
+
         <Container className="meter-container">
            <Row className="center-content">
            <h1 id="header"> {data.header_text} </h1>
