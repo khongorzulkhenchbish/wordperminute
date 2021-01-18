@@ -17,9 +17,7 @@ ReactDOM.render(
         {/* <!-- Add Firebase products that you want to use --> */}
         <script src="/__/firebase/8.0.0/firebase-auth.js"></script>
         <script defer src="init-firebase.js"></script>
-        
-        
-    </Router>, document.getElementById('root'));
+    </Router>, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

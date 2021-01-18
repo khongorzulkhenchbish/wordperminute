@@ -6,10 +6,10 @@ import data from "../../resources/data.json";
 
 const Poor = (accuracy, correct) => {
   return  <div>
-            <div className="popup-header">Таны хурд: {data.snail}</div>
+            <div className="popup-header">{data.snail}</div>
             <div>
                 <img className="popup-body" src={snail} alt="snail"/>
-                <div className="popup-body">Та {correct} үг, {accuracy}% амжилттай бичлээ.</div>
+                <div className="popup-body">Word Count: {correct}, Accuracy: {accuracy}%</div>
             </div>
           </div>;
 };
