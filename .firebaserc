@@ -6,8 +6,8 @@
   "targets": {
     "writeonme": {
       "hosting": {
-        "write-on-me": [
-          "write-on-me"
+        "wordperminute": [
+          "wordperminute"
         ]
       }
     }
