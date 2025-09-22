@@ -7,10 +7,10 @@ const Average = (accuracy,correct) => {
 
 
   return  <div>
-            <div className="popup-header">Таны хурд: {data.bunny}</div> 
+            <div className="popup-header">{data.result_header} {data.bunny}</div> 
             <div>
             <img className="half-width" src={bunny} alt="bunny"/>
-              <div className="popup-body">Та {correct} үг, {accuracy}% амжилттай бичлээ.</div>
+              <div className="popup-body">Word Count: {correct}, Accuracy: {accuracy}%</div>
             </div>
           </div>;
 };
