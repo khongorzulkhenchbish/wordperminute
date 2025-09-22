@@ -49,11 +49,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khongorzulkhenchbish/wordperminute-react.git"
+    "url": "git+https://github.com/khongorzulkhenchbish/wordperminute.git"
   },
   "author": "khongorzulkhenchbish",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/khongorzulkhenchbish/wordperminute-react/issues"
+    "url": "https://github.com/khongorzulkhenchbish/wordperminute/issues"
   }
 }
