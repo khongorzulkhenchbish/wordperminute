@@ -55,5 +55,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/khongorzulkhenchbish/wordperminute/issues"
+  },
+  "devDependencies": {
+    "eslint-plugin-promise": "^7.2.1"
   }
 }
