@@ -9,11 +9,7 @@ const Header = (props) => {
   return (
     <Row className="header-container">
         <Nav className="justify-content-end">
-            <Nav.Link href="mailto: hongorzulnemo@gmail.com">{data.contact}</Nav.Link>
-            {/* <Nav.Link href="/">{data.score_board}</Nav.Link> */}
-            <Nav.Link href="https://www.facebook.com/khongorzul.khenchbish">
-                <FaFacebook />
-            </Nav.Link>
+          <Nav.Link href="https://zulatech.web.app/">{data.contact}</Nav.Link>
         </Nav>
 
         <Container className="meter-container">

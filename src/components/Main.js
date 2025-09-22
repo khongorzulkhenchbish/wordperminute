@@ -17,7 +17,8 @@ export default class Main extends React.Component {
             charMin: 0,
             sec: 60,
         }
-        this.givenText=sample;
+
+        this.givenText=sample[this.returnRandomInt()];
         // this.givenText ="search the worlds information including webpages images videos and more google has many special features to help";
         this.givenArray=[];
         this.givenArray=this.givenText.trim().split(" ");
@@ -57,6 +58,12 @@ export default class Main extends React.Component {
 
     refreshPage () {
         window.location.reload();
+    }
+
+    returnRandomInt = (min=0, max=sample.length) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
     }
 
     async InitializeStates() {
