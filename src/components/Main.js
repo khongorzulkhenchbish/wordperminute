@@ -60,15 +60,12 @@ export default class Main extends React.Component {
         window.location.reload();
     }
 
-<<<<<<< HEAD
-=======
     returnRandomInt = (min=0, max=sample.length) => {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
     }
 
->>>>>>> 988fde9 (write-on-me 1.0.0)
     async InitializeStates() {
         this.state.isStarted = false;
         this.setState((_state) => {
