@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col, Container, Nav } from "react-bootstrap";
 import "../styles/Layout.css";
-import { FaFacebook } from 'react-icons/fa';
 import data from "../resources/data.json";
 
 
