@@ -102,7 +102,7 @@ input {
     overflow: hidden;
     position: absolute;
     white-space: nowrap;
-    max-width: 98%;
+    max-width: 50%;
 }
 
 #leftWord, #right-col {
