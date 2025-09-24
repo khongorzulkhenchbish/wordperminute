@@ -145,17 +145,21 @@ export default class Main extends React.Component {
     render() {
         return (
             <Container fluid>
-                <Header data={{sec:this.state.sec, accuracy: this.accuracy, correct: this.correct, totalLetter: this.totalLetter}}/>
-                <Row className="text-cont">
-                    <Col className="text-right" id="leftWord"></Col>
-                    <Col className={this.state.focused ? "focused": ""} id="right-col">
-                        <input type="text" id="in" onChange={(e) => {this.handleChange(e)}} autoFocus ref={c => (this._input = c)}></input>
-                        <div id="rightWord" >{this.givenText}</div>
-                    </Col>
+                <Row id="upper-part">
+                    <Header data={{sec:this.state.sec, accuracy: this.accuracy, correct: this.correct, totalLetter: this.totalLetter}}/>
+                    <Row className="text-cont">
+                        <Col className="text-right textStream" id="leftWord"></Col>
+                        <Col className={this.state.focused ? "focused": ""} id="right-col">
+                            <input type="text" id="in" onChange={(e) => {this.handleChange(e)}} autoFocus ref={c => (this._input = c)}></input>
+                            <div id="rightWord" className="textStream" >{this.givenText}</div>
+                        </Col>
+                    </Row>
+                    <PopUp data={{correct: this.correct, accuracy: this.accuracy, visible: this.state.sec===0}}/>
                 </Row>
-                <PopUp data={{correct: this.correct, accuracy: this.accuracy, visible: this.state.sec===0}}/>
-                <Adv />
-                <Footer />
+                <Row id="lower-part">
+                    <Adv />
+                    <Footer />
+                </Row>
             </Container>
         );
     }
