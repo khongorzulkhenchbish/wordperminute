@@ -9,7 +9,6 @@
     "content_header": "Your Advertisement!",
     "btn_restart": "Try Again",
     "app_name": "wordperminute",
-    "bunny": "Your typing speed is just like a Bunny!",
-    "cheetah": "Your typing speed is just like a Cheetah!",
-    "snail": "Your typing speed is just like a Snail!"
+    "final_result": "You completed the Typing Speed Test! Your result:",
+    "submit_score": "Save Score"
 }
