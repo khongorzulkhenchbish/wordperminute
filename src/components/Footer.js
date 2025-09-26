@@ -5,7 +5,7 @@ import data from "../resources/data.json";
 
 const Footer = () => {
   return (
-    <Row className="center-content">
+    <Row>
         <footer>
             {data.footer_text}
         </footer>
