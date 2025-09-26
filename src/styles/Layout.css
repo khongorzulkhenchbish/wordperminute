@@ -82,6 +82,15 @@
     padding-left: 20px;
 }
 
+.score-board {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Lexend Deca, medium, sans-serif;
+    color: #003363;
+    text-align: left;
+    align-self: center;
+}
+
 iframe {
     max-width: 100%;
 }
@@ -233,7 +242,7 @@ footer {
 
 /* Active text style */
 .toggle-text.active-text {
-  color: #333; /* More prominent color for light mode */
+  color: #003363; /* More prominent color for light mode */
   font-weight: bold;
 }
 

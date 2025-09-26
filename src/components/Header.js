@@ -7,10 +7,13 @@ import DarkModeToggle from "./DarkModeToggle";
 const Header = (props) => {
   return (
     <Row className="header-container justify-content-md-center">
-        <Nav className="justify-content-end" id="menu-bar">
-          <DarkModeToggle className="menu-item"/>
-          <Button className="contactButton menu-item" href="https://www.linkedin.com/in/zulaconnect/">Contact us</Button>
-        </Nav>
+        <Row className="justify-content-between" id="menu-bar">
+          <Col className="score-board" onClick={() => console.log('hey')}>Score Board</Col>
+          <Nav className="justify-content-end col">
+            <DarkModeToggle className="menu-item"/>
+            <Button className="contactButton menu-item" href="https://www.linkedin.com/in/zulaconnect/">Contact us</Button>
+          </Nav>
+        </Row>
 
         <Container>
            <Row className="center-content">
