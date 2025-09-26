@@ -6,36 +6,36 @@ import DarkModeToggle from "./DarkModeToggle";
 
 const Header = (props) => {
   return (
-    <Row className="header-container">
-        <Nav className="justify-content-end">
-          <DarkModeToggle />
-          <Button className="contactButton" href="https://www.linkedin.com/in/zulaconnect/">Contact us</Button>
+    <Row className="header-container justify-content-md-center">
+        <Nav className="justify-content-end" id="menu-bar">
+          <DarkModeToggle className="menu-item"/>
+          <Button className="contactButton menu-item" href="https://www.linkedin.com/in/zulaconnect/">Contact us</Button>
         </Nav>
 
-        <Container className="meter-container">
+        <Container>
            <Row className="center-content">
            <h1 id="header"> {data.header_text} </h1>
            </Row>
-          <Row className="center-content">
-            <Col className="meter">
+          <Row className="justify-content-md-center">
+            <Col className="meter center-content">
               <Col id="second">
                 {props.data.sec}
               </Col>
               <Col className="desc">{data.sec} </Col>
             </Col>
-            <Col className="meter">
+            <Col className="meter center-content">
               <Col id="wordMin">
                 {props.data.correct}
               </Col>
               <Col className="desc">{data.wrdMin} </Col>
             </Col>
-            <Col className="meter">
+            <Col className="meter center-content">
               <Col id="charMin">
                 {props.data.totalLetter}
               </Col>
               <Col className="desc">{data.charMin} </Col>
             </Col>
-            <Col className="meter">
+            <Col className="meter center-content">
               <Col id="accuracy">
                 {props.data.accuracy}%
               </Col>

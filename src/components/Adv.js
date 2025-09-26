@@ -6,8 +6,8 @@ import '../styles/Layout.css'
 const Adv = () => {
   return (
     <Row className="adv">
-        <iframe className="contentBox first-box adv-video" src="https://www.youtube.com/embed/QAb3ATOpBpE?si=v5Hu0sNZuASslU2E" frameBorder="0" title="advVideo"></iframe>
-        <div className="contentBox">
+        <iframe className="content-box" src="https://www.youtube.com/embed/YQZEoZ4W0ac?si=Jq-g3tn0sD-cR0R_" title="YouTube video player"></iframe>
+        <div className="content-box">
         <h1>{data.content_header}</h1>
           <p>{data.adv_text}</p>
         </div>
