@@ -3,6 +3,19 @@
     width: 80%!important;
 }
 
+th {
+    font-size: 20px;
+    font-family: Lexend Deca, sans-serif, Regular;
+    color: #003363!important;
+    letter-spacing: 0;
+}
+
+td {
+    font-size: 16px;
+    font-family: Lexend Deca, sans-serif, Regular;
+    color: #003363!important;
+    letter-spacing: 0;
+}
 #menu-bar {
     background-color: white!important;
     padding: 10px 0;
@@ -205,17 +218,12 @@ footer {
     color: #003363;
 }
 
-.popup-body {
-}
-
 #lower-part {
     background-color: #ECF6FF;
 }
 
 .half-width, .popup-body {
     width: 50%;
-}
-.popup-footer {
 }
 
 .contactButton {

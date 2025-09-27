@@ -16,6 +16,9 @@ Thumbs.db
 
 # config files
 src/init-firebase.js
+firebase.json
+.firebaserc
+
 
 # Firebase credentials and local environment files
 .env

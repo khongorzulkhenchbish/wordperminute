@@ -7,7 +7,7 @@
     "charMin": "chars/min",
     "wrdMin": "words/min",
     "content_header": "Your Advertisement!",
-    "btn_restart": "Try Again",
+    "bnt_close": "Close",
     "app_name": "wordperminute",
     "final_result": "You completed the Typing Speed Test! Your result:",
     "submit_score": "Save Score"
