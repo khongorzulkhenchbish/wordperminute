@@ -5,10 +5,15 @@ import data from "../resources/data.json";
 import DarkModeToggle from "./DarkModeToggle";
 
 const Header = (props) => {
+  const redirectToScoreboard = () => () => {
+      console.log('Redirecting to scoreboard...');
+      window.location.href = '/scoreboard';
+  }
+
   return (
     <Row className="header-container justify-content-md-center">
         <Row className="justify-content-between" id="menu-bar">
-          <Col className="score-board" onClick={() => console.log('hey')}>Score Board</Col>
+          <Col className="score-board" onClick={redirectToScoreboard()}>Score Board</Col>
           <Nav className="justify-content-end col">
             <DarkModeToggle className="menu-item"/>
             <Button className="contactButton menu-item" href="https://www.linkedin.com/in/zulaconnect/">Contact us</Button>

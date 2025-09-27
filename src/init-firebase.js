@@ -1,5 +1,6 @@
-import * as firebase from 'firebase';
-
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+ 
 var config = {
   apiKey: "AIzaSyDPyFN9_u9-FqfWpQAUehftoDHLm9YprZI",
   authDomain: "writeonme-c4042.firebaseapp.com",
@@ -9,8 +10,6 @@ var config = {
   messagingSenderId: "271318331074",
   appId: "1:271318331074:web:c7cf9416a2306fb1d7d55b"
 };
-firebase.initializeApp(config);
 
-
-
-export default firebase;
+const app = initializeApp(config);
+export const db = getFirestore(app);
