@@ -16,6 +16,8 @@ export default class Main extends React.Component {
             givenWord: '',
             charMin: 0,
             sec: 60,
+            focused: false,
+            showButton: true
         }
 
         this.givenText=sample[this.returnRandomInt()];
@@ -88,6 +90,14 @@ export default class Main extends React.Component {
 
         var tmp=e.target.value, display='';
 
+        // Hide the button as soon as the user starts typing
+        if (tmp.length > 0) {
+            this.setState({ showButton: false });
+        } else {
+            // Optional: show the button again if the user deletes all text
+            this.setState({ showButton: true });
+        }
+
         if(getLastInputChar(tmp) === " ") {
             tmp = tmp.substr(0, tmp.length - 1);
             if(tmp.length >= 1)
@@ -141,17 +151,29 @@ export default class Main extends React.Component {
         }
     }
 
+    focusInput = () => {
+        if (this._input) {
+            this._input.focus();
+        }
+    };
 
     render() {
         return (
             <Container fluid>
                 <Row id="upper-part" className="justify-content-md-center">
                     <Header data={{sec:this.state.sec, accuracy: this.accuracy, correct: this.correct, totalLetter: this.totalLetter}}/>
-                    <Row className="text-cont">
+                    <Row className="text-cont" onClick={this.focusInput}>
+                        {this.state.showButton && (
+                            <div className="button-container">
+                                <div id="start-typing-button" className="animated-button">Start Typing</div>
+                            </div>
+                        )}
                         <Col className="text-right text-stream" id="leftWord"></Col>
                         <Col className={this.state.focused ? "focused": ""} id="right-col">
-                            <input type="text" id="in" onChange={(e) => {this.handleChange(e)}} autoFocus ref={c => (this._input = c)}></input>
-                            <div id="rightWord" className="text-stream" >{this.givenText}</div>
+                            <div className="input-overlay-container">
+                                <input type="text" id="in" onChange={(e) => {this.handleChange(e)}} autoFocus ref={c => (this._input = c)}></input>
+                                <div id="rightWord" className="text-stream" >{this.givenText}</div>
+                            </div>
                         </Col>
                     </Row>
                     <PopUp data={{correct: this.correct, accuracy: this.accuracy, visible: this.state.sec===0}}/>
