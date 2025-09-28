@@ -49,11 +49,6 @@ const PopUp = (props) => {
             });
     }
 
-    const redirectToScoreBoard = () => () => {
-        console.log('Redirecting to scoreboard...');
-        window.location.href = '/scoreboard';
-    }
-
     return (
         <Container className="popup-container" style={{display: props.data.visible ? 'block' : 'none' }}>
           <div className="popup-overlay">
@@ -91,7 +86,6 @@ const PopUp = (props) => {
                     ) : (
                         <>
                             <div style={{ color: "green", marginBottom: "1rem" }}>{message}</div>
-                            <Button className="contactButton" onClick={redirectToScoreBoard()} style={{marginBottom: "1rem"}}>Check Score Board</Button>
                         </>
                         )}
                         {message && !submitted && (
