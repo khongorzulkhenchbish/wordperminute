@@ -28,8 +28,8 @@ export default class Main extends React.Component {
         this.i=0;
         this.style = {
             end:'</span>',
-            green:'<span style="color: #6174b4;text-decoration: none;">',
-            red:'<span style="color: #6174b4;text-decoration: line-through;">'
+            green:'<span style="text-decoration: none;">',
+            red:'<span style="text-decoration: line-through;">'
         }
         this.lDiv='';
         this.index=0;
@@ -160,7 +160,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <Container fluid>
-                <Row id="upper-part" className="justify-content-md-center">
+                <Row className="justify-content-md-center">
                     <Header data={{sec:this.state.sec, accuracy: this.accuracy, correct: this.correct, totalLetter: this.totalLetter}}/>
                     <Row className="text-cont" onClick={this.focusInput}>
                         {this.state.showButton && (

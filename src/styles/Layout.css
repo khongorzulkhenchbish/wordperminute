@@ -1,3 +1,25 @@
+:root {
+  --primary-bg: #FFFFFF;
+  --textbox-bg: #ECF6FF;
+  --popup-bg: #FFFFFF;
+  --primary-text: #003363;
+  --leftbox-text: #60a7f8;
+  --rightbox-text: #C8D9E9;
+}
+
+body.dark-mode {
+  --primary-bg: #05182c;
+  --textbox-bg: #001F3C;
+  --popup-bg: #001F3C;
+  --primary-text: #FFFFFF;
+  --leftbox-text: #60a7f8;
+  --rightbox-text: #28435D;
+}
+
+.biggest-container {
+    background-color: var(--primary-bg);
+}
+
 .header-container {
     flex-direction: column;
     width: 80%!important;
@@ -6,24 +28,26 @@
 th {
     font-size: 20px;
     font-family: Lexend Deca, sans-serif, Regular;
-    color: #003363!important;
     letter-spacing: 0;
+    color: #003363 !important;
 }
 
 td {
     font-size: 16px;
     font-family: Lexend Deca, sans-serif, Regular;
-    color: #003363!important;
     letter-spacing: 0;
+    color: #003363 !important
 }
+
 #menu-bar {
-    background-color: white!important;
+    background-color: var(--primary-bg) !important;
     padding: 10px 0;
-    border-bottom: 1px solid #E6EEF4;
+    border-bottom: 1px solid var(--menu-border-color);
 }
 
 .menu-item {
     margin-left: 30px;
+    align-self: baseline;
 }
 
 .center-content {
@@ -50,14 +74,13 @@ td {
     font-size: 48px;
     font-weight: 500;
     font-family: Lexend Deca, sans-serif, bold;
-    color: #003363;
     max-width: 120px !important;
 }
 
 #header {
     font-family: Lexend Deca, sans-serif, semi-bold;
     font-weight: 600;
-    color: #003363;
+    color: var(--primary-text);
     font-size: 64px;
     line-height: 65px;
     width: 80%;
@@ -77,7 +100,6 @@ td {
     font-size: 24px;
     line-height: 24px;
     margin-bottom: 15px;
-    color: #003363;
     font-family: Lexend Deca, regular, sans-serif;
     font-weight: 600;
     letter-spacing: 0;
@@ -88,18 +110,21 @@ td {
 .content-box p {
     text-align: justify;
     font-size: 16px;
-    color: #003363;
     font-family: Lexend Deca, regular, sans-serif;
     font-weight: 400;
     letter-spacing: 0;
     padding-left: 20px;
 }
 
+.content-box h1, p,  .meter, .popup-header {
+    color: var(--primary-text);
+}
+
 .score-board {
     font-size: 16px;
     font-weight: 500;
     font-family: Lexend Deca, medium, sans-serif;
-    color: #003363;
+    color: var(--primary-text);
     text-align: left;
     align-self: center;
     cursor: pointer;
@@ -125,6 +150,7 @@ input {
     width: 50%;
     padding-right: 0  !important;
     overflow: hidden;
+    color: var(--leftbox-text);
 }
 
 #rightWord {
@@ -132,7 +158,7 @@ input {
     position: absolute;
     white-space: nowrap;
     max-width: 100%;
-    color: #C8D9E9;
+    color: var(--rightbox-text);
     position: absolute;
 }
 
@@ -164,7 +190,7 @@ footer {
 .text-cont {
     height: 118px;
     align-items: center;
-    background-color: #ECF6FF;
+    background-color: var(--textbox-bg);
     width: 80%!important;
     border-radius: 15px;
     padding-left: 0!important;
@@ -210,7 +236,7 @@ footer {
     border-radius: 8px;
     display: inline-block;
     box-shadow: 0 0 30px 0 rgba(35, 35, 60, .7);
-    background-color: #FFFFFF;
+    background-color: var(--popup-bg);
 }
 
 .popup-header {
@@ -218,11 +244,15 @@ footer {
     line-height: 22px;
     font-family: Lexend Deca, regular, sans-serif;
     font-weight: 400;
-    color: #003363;
+}
+
+#nav-container {
+    padding: 0 !important;
+    width: 80%;
 }
 
 #lower-part {
-    background-color: #ECF6FF;
+    background-color: var(--textbox-bg);
 }
 
 .half-width, .popup-body {
@@ -294,9 +324,15 @@ footer {
 
 #in {
     height: 100%;
-    caret-color: #003363;
+    caret-color: var(--primary-text);
     background-color: transparent;
     font-size: 64px;
+}
+
+.score-board-bg {
+    background-color: var(--primary-bg);
+    height: 100vh;
+    align-items: baseline;
 }
 
 /* src/components/ThemeToggle.css */
