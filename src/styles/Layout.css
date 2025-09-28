@@ -102,6 +102,7 @@ td {
     color: #003363;
     text-align: left;
     align-self: center;
+    cursor: pointer;
 }
 
 iframe {
@@ -130,8 +131,9 @@ input {
     overflow: hidden;
     position: absolute;
     white-space: nowrap;
-    max-width: 50%;
-    color: #C8D9E9
+    max-width: 100%;
+    color: #C8D9E9;
+    position: absolute;
 }
 
 #leftWord, #right-col {
@@ -169,6 +171,7 @@ footer {
     padding-right: 0!important;
     margin-bottom: 90px;
     margin-top: 80px!important;
+    position: relative;
 }
 
 .grey-back {
@@ -226,11 +229,74 @@ footer {
     width: 50%;
 }
 
+.button-container {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Ensures the button is on top of other elements */
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px); /* Moves the button up by 5px while keeping it centered on the x-axis */
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+#start-typing-button {
+    background-color: #4AA7FF;
+    position: absolute;
+    color: white;
+    font-family: Lexend Deca, sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.animated-button {
+    animation: bounce 2s infinite ease-in-out;
+}
+
+#start-typing-button::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 14px;
+    height: 14px;
+    background-color: #4AA7FF;
+}
+
 .contactButton {
     background-color: #4AA7FF !important;
     color: white !important;
     border: none !important;
     font-family: Lexend Deca, sans-serif !important;
+}
+
+.input-overlay-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    /* background-color: aqua; */
+}
+
+#in {
+    height: 100%;
+    caret-color: #003363;
+    background-color: transparent;
+    font-size: 64px;
 }
 
 /* src/components/ThemeToggle.css */

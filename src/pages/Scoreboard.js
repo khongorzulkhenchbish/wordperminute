@@ -1,11 +1,10 @@
 import React from "react";
 import "../styles/Layout.css";
-import { Container } from "react-bootstrap";
 import { Row, Col, Nav, Button } from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
 import DarkModeToggle from "../components/DarkModeToggle";
 import { useEffect, useState } from 'react';
-import { collection, query, orderBy, getDocs, DocumentData } from 'firebase/firestore';
+import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '../init-firebase';
 import { FaTrophy } from 'react-icons/fa';
 
