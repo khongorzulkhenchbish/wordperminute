@@ -1,4 +1,28 @@
-TODO: upload photos of the website when ready
+### Project: Word Per Minute
+This project is a web application that measures how many words you can type per minute correctly. It was built using [Javascript with React framework, Firebase].
+
+<table>
+  <tr>
+    <td align="center">
+      Realtime measurements<br>
+      <img src="https://github.com/user-attachments/assets/059e8fc9-b34c-43b0-9924-96b84af940b6" alt="Screenshot 2025-09-24 at 12 34 40" height="450">
+    </td>
+    <td align="center">
+      Test Result<br>
+      <img src="https://github.com/user-attachments/assets/9f941658-954d-4d98-b3ff-7859cb10527d" alt="Screenshot 2025-09-24 at 12 34 40" height="500">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      Dark mode<br>
+      <img src="https://github.com/user-attachments/assets/916153c0-21ef-483d-aca4-49b66bee278b" alt="Screenshot 2025-09-24 at 12 34 40" height="450">
+    </td>
+    <td align="center">
+      Leaderboard<br>
+      <img src="https://github.com/user-attachments/assets/bb284dcd-b124-4394-9b1d-ef9cebe8cd95" alt="Screenshot 2025-09-24 at 12 34 40" height="500">
+    </td>
+  </tr>
+</table>
 
 ## Available Scripts
 
