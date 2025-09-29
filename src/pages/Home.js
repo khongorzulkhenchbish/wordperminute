@@ -4,6 +4,7 @@ import "../styles/Layout.css";
 import { useState, useEffect } from "react";
 import { Row, Col, Nav, Button, Container } from "react-bootstrap";
 import Scoreboard from "../components/Scoreboard";
+import Footer from "../components/Footer";
 
 const Home = () => {
     const [isDark, setIsDark] = useState(false);
@@ -51,6 +52,7 @@ const Home = () => {
         ) : (
           <Main />
         )}
+        <Footer />
       </div>
     );
 };

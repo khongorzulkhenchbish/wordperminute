@@ -28,16 +28,23 @@ const Scoreboard = () => {
             querySnapshot.forEach((doc) => {
                 // doc.data() returns a plain JavaScript object
                 const data = doc.data();
-                const scoreDate = data.date && typeof data.date.toDate === 'function'
-                                    ? data.date.toDate()
-                                    : new Date();
-
+                const scoreDateStr = data.timestamp && typeof data.timestamp.toDate === 'function'
+                    ? data.timestamp.toDate().toLocaleString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false
+                    }).replace(',', '')
+                    : '';
                 fetchedScores.push({
                     id: doc.id, // Document ID is useful for React keys and for referencing the document
                     username: data.username,
                     wpm: data.wpm,
                     accuracy: data.accuracy,
-                    date: scoreDate,
+                    date: scoreDateStr,
                 });
             });
 
@@ -102,7 +109,7 @@ const Scoreboard = () => {
                             <td>{score.username}</td>
                             <td>{score.wpm}</td>
                             <td>{score.accuracy}%</td>
-                            <td>{score.date?.toLocaleDateString()}</td>
+                            <td>{score.date}</td>
                         </tr>
                         ))
                     )}

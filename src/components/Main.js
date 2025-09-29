@@ -2,7 +2,6 @@ import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 import Header from './Header';
 import Adv from '../components/Adv';
-import Footer from '../components/Footer';
 import PopUp from '../components/PopUp';
 import '../styles/Layout.css';
 import { isSameString, getLastInputChar } from './isSameString';
@@ -181,7 +180,6 @@ export default class Main extends React.Component {
                 <Row id="lower-part" className="justify-content-md-center">
                     <Adv />
                 </Row>
-                <Footer />
             </Container>
         );
     }
