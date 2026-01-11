@@ -12,7 +12,6 @@
     "bootstrap": "^5.3.8",
     "firebase": "^12.3.0",
     "firebase-admin": "^13.5.0",
-    "firebase-functions": "^6.4.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.6.8",
     "react-dom": "^16.13.1",
