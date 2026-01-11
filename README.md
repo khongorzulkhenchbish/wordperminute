@@ -1,5 +1,5 @@
 ### Project: Word Per Minute
-This project is a web application that measures how many words you can type per minute correctly. It was built using [Javascript with React framework, Firebase].
+A small React web app that measures typing speed (words per minute) and stores results using Firebase.
 
 <table>
   <tr>
@@ -24,29 +24,38 @@ This project is a web application that measures how many words you can type per 
   </tr>
 </table>
 
-## Available Scripts
+**Quick Start**
+- **Install:** Run `npm install` in the project root.
+- **Dev server:** Run `npm start` and open `http://localhost:3000`.
+- **Build:** Run `npm run build` to produce production files in the `build/` folder.
+- **Tests:** Run `npm test`.
 
-In the project directory, you can run:
+**File structure (high level)**
+- **`package.json`**: project metadata and scripts.
+- **`public/`**: static HTML and assets served by the app. See [public/index.html](public/index.html).
+- **`src/`**: application source code.
+  - **`src/index.js`**: app entry point.
+  - **`src/App.js`**: main React component and routing.
+  - **`src/init-firebase.js`**: Firebase initialization (contains client API key and config).
+  - **`src/components/`**: React components (e.g., `Header.js`, `Main.js`, `Scoreboard.js`). See [src/components](src/components).
+  - **`src/pages/`**: top-level page components (e.g., `Home.js`).
+  - **`src/resources/`**: static JSON data used by the app.
+  - **`src/styles/`**: CSS/SCSS theme and layout files.
+- **`build/`**: production output (should be ignored by git unless you intend to publish via GH Pages).
 
-### `npm start`
+**Security & secrets**
+- **Client config:** The Firebase config in [src/init-firebase.js](src/init-firebase.js) includes a public API key used by the frontend. This key is expected to be public for Firebase web apps, but you must never commit private service account keys or other credentials.
+- **Service accounts / private keys:** If you have a service account JSON (used by server-side code in `functions/`), it must NOT be committed. Add such files to `.gitignore`. Use environment variables or Firebase environment configuration for secrets.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Cleaning exposed secrets**
+- If a secret was committed and pushed, rotate the credential first (Google Cloud Console → APIs & Services → Credentials), then remove it from the git history using `git-filter-repo` or BFG before forcing a push. See the repository issues or documentation for more details.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Deployment notes**
+- The app can be hosted on Firebase Hosting (see `firebase.json` in the repo) or any static-hosting provider.
+- If you publish via GitHub Pages and want `build/` committed, keep it; otherwise ensure `build/` is in `.gitignore`.
 
-### `npm test`
+**Contributing**
+- Open issues or PRs for bugs and enhancements. If you rewrite history to remove secrets, coordinate with collaborators.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**License**
+- This project does not include a license file. Add one (for example, MIT) if you want to permit reuse.

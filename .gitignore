@@ -28,4 +28,4 @@ coverage/
 .vscode/
 .idea/
 
-src/init-firebase.json
+src/init-firebase.js
