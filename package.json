@@ -60,6 +60,7 @@
     "url": "https://github.com/khongorzulkhenchbish/wordperminute/issues"
   },
   "devDependencies": {
+    "baseline-browser-mapping": "^2.9.14",
     "eslint-plugin-promise": "^7.2.1"
   }
 }
