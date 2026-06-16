@@ -21,7 +21,7 @@
     "@neondatabase/serverless": "^0.10.4"
   },
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   },
   "scripts": {
     "start": "react-scripts start",
