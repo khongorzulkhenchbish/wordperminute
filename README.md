@@ -49,6 +49,7 @@ A small React web app that measures typing speed (words per minute) and stores r
 
 **Cleaning exposed secrets**
 - If a secret was committed and pushed, rotate the credential first (Google Cloud Console → APIs & Services → Credentials), then remove it from the git history using `git-filter-repo` or BFG before forcing a push. See the repository issues or documentation for more details.
+- Use this doc as guide: https://graphite.com/guides/git-remove-committed-files
 
 **Deployment notes**
 - The app can be hosted on Firebase Hosting (see `firebase.json` in the repo) or any static-hosting provider.

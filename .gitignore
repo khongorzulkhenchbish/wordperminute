@@ -9,9 +9,8 @@ dist/
 
 .env
 .env.*
+!.env.local.example
 
-.firebase/
-.firebaserc
 
 functions/node_modules/
 
@@ -27,5 +26,3 @@ coverage/
 
 .vscode/
 .idea/
-
-src/init-firebase.js

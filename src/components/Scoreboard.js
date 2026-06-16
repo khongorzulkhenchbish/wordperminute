@@ -3,8 +3,6 @@ import "../styles/Layout.css";
 import { Row } from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
 import { useEffect, useState } from 'react';
-import { collection, query, orderBy, getDocs } from 'firebase/firestore';
-import { db } from '../init-firebase';
 import { FaTrophy } from 'react-icons/fa';
 
 const Scoreboard = () => {
@@ -14,57 +12,33 @@ const Scoreboard = () => {
 
     useEffect(() => {
         const fetchScores = async () => {
-        try {
-            const scoresCollectionRef = collection(db, "scores");
-            const q = query(
-                scoresCollectionRef,
-                orderBy("wpm", "desc"),
-                orderBy("accuracy", "desc")
-            );
-
-            const querySnapshot = await getDocs(q);
-            const fetchedScores = [];
-
-            querySnapshot.forEach((doc) => {
-                // doc.data() returns a plain JavaScript object
-                const data = doc.data();
-                const scoreDateStr = data.timestamp && typeof data.timestamp.toDate === 'function'
-                    ? data.timestamp.toDate().toLocaleString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit',
-                        hour12: false
-                    }).replace(',', '')
-                    : '';
-                fetchedScores.push({
-                    id: doc.id, // Document ID is useful for React keys and for referencing the document
-                    username: data.username,
-                    wpm: data.wpm,
-                    accuracy: data.accuracy,
-                    date: scoreDateStr,
-                });
-            });
-
-            // Assign 'rank' (rank) based on the order returned by the query
-            const scoresWithrank = fetchedScores.map((score, index) => ({
-            ...score,
-            rank: index + 1,
-            }));
-
-            setScores(scoresWithrank);
-        } catch (err) {
-            console.error("Error fetching scores:", err);
-            setError("Failed to load scores. Please check your browser's console for more details.");
-        } finally {
-            setLoading(false);
-        }
+            try {
+                const res = await fetch('/api/scores');
+                if (!res.ok) throw new Error('Failed to fetch scores');
+                const data = await res.json();
+                const scoresWithRank = data.map((score, index) => ({
+                    id: score.id,
+                    username: score.username,
+                    wpm: score.wpm,
+                    accuracy: score.accuracy,
+                    date: score.created_at
+                        ? new Date(score.created_at).toLocaleString('en-US', {
+                            year: 'numeric', month: 'short', day: 'numeric',
+                            hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+                        }).replace(',', '')
+                        : '',
+                    rank: index + 1,
+                }));
+                setScores(scoresWithRank);
+            } catch (err) {
+                console.error("Error fetching scores:", err);
+                setError("Failed to load scores.");
+            } finally {
+                setLoading(false);
+            }
         };
-
         fetchScores();
-    }, []); // Empty dependency array means this effect runs once after the initial render
+    }, []);
 
     if (loading) {
         return <p style={{ textAlign: "center"}}>Loading scoreboard...</p>;

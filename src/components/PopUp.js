@@ -2,8 +2,6 @@ import { React, useState } from "react";
 import {Container, Button, Form, InputGroup, Row, Col } from "react-bootstrap";
 import "../styles/Layout.css";
 import data from "../resources/data.json";
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../init-firebase';
 
 const PopUp = (props) => {
     const [submitted, setSubmitted] = useState(false);
@@ -14,14 +12,14 @@ const PopUp = (props) => {
     }
 
     const addEntryToCollection = async (dataToAdd) => {
-        try {
-            const docRef = await addDoc(collection(db, "scores"), dataToAdd);
-            console.log("Document written with ID: ", docRef.id);
-            return docRef.id; // Return the new document ID
-        } catch (e) {
-            console.error("Error adding document: ", e);
-            throw e; // Or handle the error as appropriate for your app
-        }
+        const res = await fetch('/api/scores', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dataToAdd),
+        });
+        if (!res.ok) throw new Error('Failed to save score');
+        const result = await res.json();
+        return result.id;
     };
 
     const handleClick = () => () => {
