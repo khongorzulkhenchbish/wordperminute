@@ -33,6 +33,14 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@neondatabase)"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/src/__mocks__/styleMock.js"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
